@@ -1,0 +1,63 @@
+{
+	"name": "DB_AZ_WEATHER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sdate",
+				"type": "varchar"
+			},
+			{
+				"name": "city_id",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weather",
+				"type": "nvarchar"
+			},
+			{
+				"name": "typeid",
+				"type": "varchar"
+			},
+			{
+				"name": "typena",
+				"type": "nvarchar"
+			},
+			{
+				"name": "low",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "hight",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "rain",
+				"type": "varchar"
+			},
+			{
+				"name": "uv",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_WEATHER"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

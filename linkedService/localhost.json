@@ -1,0 +1,16 @@
+{
+	"name": "localhost",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=TW-GEOLIANG-201;initial catalog=skmh;user id=george",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMDdlMmM1Ny05ZTQ3LTQ4M2QtYTI0ZC00Mzc0ZThmMzg2NGIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "self-hosted-ir",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

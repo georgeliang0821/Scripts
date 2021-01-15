@@ -1,0 +1,69 @@
+{
+	"name": "DB_AZ_ActivityData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "d_date",
+				"type": "varchar"
+			},
+			{
+				"name": "store_no",
+				"type": "varchar"
+			},
+			{
+				"name": "goo_no",
+				"type": "char"
+			},
+			{
+				"name": "activity_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "activity_code",
+				"type": "varchar"
+			},
+			{
+				"name": "activity_no",
+				"type": "varchar"
+			},
+			{
+				"name": "activity_content",
+				"type": "nvarchar"
+			},
+			{
+				"name": "activity_level",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "activity_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "activity_price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "activity_total_price",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_ActivityData"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

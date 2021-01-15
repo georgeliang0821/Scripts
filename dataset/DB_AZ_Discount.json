@@ -1,0 +1,57 @@
+{
+	"name": "DB_AZ_Discount",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "D_DATE",
+				"type": "varchar"
+			},
+			{
+				"name": "STORE_NO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GOO_NO",
+				"type": "nchar"
+			},
+			{
+				"name": "DIS_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "QTY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DISCOUNT",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PRICE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PR_PRICE",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_Discount"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

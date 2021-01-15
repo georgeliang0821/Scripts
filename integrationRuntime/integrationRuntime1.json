@@ -1,0 +1,25 @@
+{
+	"name": "integrationRuntime1",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "East Asia",
+				"nodeSize": "Standard_D8_v3",
+				"numberOfNodes": 2,
+				"maxParallelExecutionsPerNode": 8
+			},
+			"ssisProperties": {
+				"customSetupScriptProperties": {
+					"blobContainerUri": "https://pxmartstorage.blob.core.windows.net/csv",
+					"sasToken": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				},
+				"edition": "Standard",
+				"licenseType": "LicenseIncluded"
+			}
+		}
+	}
+}

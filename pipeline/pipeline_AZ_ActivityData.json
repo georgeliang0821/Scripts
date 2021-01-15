@@ -1,0 +1,195 @@
+{
+	"name": "pipeline_AZ_ActivityData",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table dbo.AZ_ActivityData",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "d_date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "d_date",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "store_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "store_no",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_no",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_content",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_content",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_level",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_level",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_price",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_total_price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_total_price",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "File_ActivityData",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DB_AZ_ActivityData",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-12-02T08:45:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,38 @@
+{
+	"name": "DB_AZ_DailyStoreReturn",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "d_date",
+				"type": "varchar"
+			},
+			{
+				"name": "store_no",
+				"type": "varchar"
+			},
+			{
+				"name": "goo_no",
+				"type": "varchar"
+			},
+			{
+				"name": "Return_qty",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_DailyStoreReturn"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

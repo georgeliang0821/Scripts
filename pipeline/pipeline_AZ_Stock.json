@@ -1,0 +1,195 @@
+{
+	"name": "pipeline_AZ_Stock",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table [dbo].[AZ_Stock]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "d_date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "d_date",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "str_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "str_no",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ivpwprod",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "bi_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "bi_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "rcv_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rcv_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "shp_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "shp_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "rtn_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rtn_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "inv_fuqy",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "inv_fuqy",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "inv_deqy",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "inv_deqy",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "inv_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "inv_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "File_Stock",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DB_AZ_Stock",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-12-02T08:45:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

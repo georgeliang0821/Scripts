@@ -1,0 +1,219 @@
+{
+	"name": "pipeline_AZ_Goo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table [dbo].[AZ_Goo]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "goo_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goo_na",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sub_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sub_na",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "inner_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "inner_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sunt_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sunt_na",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "dps_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dps_no",
+									"type": "String",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "dps_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dps_na",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "mdps_no_new",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "mdps_no_new",
+									"type": "String",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "mdps_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "mdps_na",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sdps_no_new",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sdps_no_new",
+									"type": "String",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sdps_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sdps_na",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ddps_no_new",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ddps_no_new",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "ddps_na",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ddps_na",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "File_Goo",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DB_AZ_GOO",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-12-02T08:45:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

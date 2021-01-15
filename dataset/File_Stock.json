@@ -1,0 +1,72 @@
+{
+	"name": "File_Stock",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "File"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "AZ_Stock_20201202.csv",
+				"container": "csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "d_date",
+				"type": "String"
+			},
+			{
+				"name": "str_no",
+				"type": "String"
+			},
+			{
+				"name": "goo_no",
+				"type": "String"
+			},
+			{
+				"name": "bi_qty",
+				"type": "String"
+			},
+			{
+				"name": "rcv_qty",
+				"type": "String"
+			},
+			{
+				"name": "shp_qty",
+				"type": "String"
+			},
+			{
+				"name": "rtn_qty",
+				"type": "String"
+			},
+			{
+				"name": "inv_fuqy",
+				"type": "String"
+			},
+			{
+				"name": "inv_deqy",
+				"type": "String"
+			},
+			{
+				"name": "inv_qty",
+				"type": "String"
+			},
+			{
+				"name": "qty",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

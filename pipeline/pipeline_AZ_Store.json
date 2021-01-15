@@ -1,0 +1,147 @@
+{
+	"name": "pipeline_AZ_Store",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table [dbo].[AZ_Store_bak]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "uporgid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "uporgid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "uporgname",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "uporgname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "orgid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "orgid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "orgname",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "orgname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "store_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "store_no",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name_short",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "name_short",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "city_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "city_id",
+									"type": "String",
+									"physicalType": "nchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "File_Store",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DB_AZ_Store",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-01-13T04:31:44Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

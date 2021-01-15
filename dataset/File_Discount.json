@@ -1,0 +1,60 @@
+{
+	"name": "File_Discount",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "File"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "AZ_Discount_20201202.csv",
+				"container": "csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "D_DATE",
+				"type": "String"
+			},
+			{
+				"name": "STORE_NO",
+				"type": "String"
+			},
+			{
+				"name": "GOO_NO",
+				"type": "String"
+			},
+			{
+				"name": "DIS_ID",
+				"type": "String"
+			},
+			{
+				"name": "QTY",
+				"type": "String"
+			},
+			{
+				"name": "DISCOUNT",
+				"type": "String"
+			},
+			{
+				"name": "PRICE",
+				"type": "String"
+			},
+			{
+				"name": "PR_PRICE",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

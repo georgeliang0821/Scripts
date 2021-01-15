@@ -1,0 +1,183 @@
+{
+	"name": "pipeline_AZ_WEATHER",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table [dbo].[AZ_WEATHER]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "sdate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sdate",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "city_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "city_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "weather",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "weather",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "typeid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "typeid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "typena",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "typena",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "low",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "low",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "hight",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "hight",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "rain",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rain",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "uv",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "uv",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "File_Weather",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DB_AZ_WEATHER",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-12-02T08:45:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

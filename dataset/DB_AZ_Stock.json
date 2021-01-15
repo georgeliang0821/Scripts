@@ -1,0 +1,73 @@
+{
+	"name": "DB_AZ_Stock",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "d_date",
+				"type": "varchar"
+			},
+			{
+				"name": "str_no",
+				"type": "varchar"
+			},
+			{
+				"name": "ivpwprod",
+				"type": "varchar"
+			},
+			{
+				"name": "bi_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "rcv_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "shp_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "rtn_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_fuqy",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_deqy",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "qty",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_Stock"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

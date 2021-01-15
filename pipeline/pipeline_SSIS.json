@@ -1,0 +1,39 @@
+{
+	"name": "pipeline_SSIS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute SSIS Package1",
+				"type": "ExecuteSSISPackage",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"packageLocation": {
+						"packagePath": "Training/BlobToAzureSQL/Package_gen2.dtsx",
+						"type": "SSISDB"
+					},
+					"runtime": "x64",
+					"environmentPath": null,
+					"connectVia": {
+						"referenceName": "pxmart-ssis-ir",
+						"type": "IntegrationRuntimeReference"
+					},
+					"loggingLevel": "Basic"
+				}
+			}
+		],
+		"folder": {
+			"name": "Training"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-01-12T11:22:22Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

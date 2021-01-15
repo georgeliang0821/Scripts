@@ -1,0 +1,204 @@
+{
+	"name": "CopyPipeline_yxl",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_yxl",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "csv//AZ_ActivityData.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.AZ_ActivityData"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "d_date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "d_date",
+									"type": "DateTime",
+									"physicalType": "smalldatetime"
+								}
+							},
+							{
+								"source": {
+									"name": "store_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "store_no",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goo_no",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_no",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_no",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_content",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_content",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_level",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_level",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_qty",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_price",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "activity_total_price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activity_total_price",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_yxl",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_yxl",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-11-20T08:23:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,74 @@
+{
+	"name": "DB_AZ_GOO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "goo_no",
+				"type": "char"
+			},
+			{
+				"name": "goo_na",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub_na",
+				"type": "nvarchar"
+			},
+			{
+				"name": "inner_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sunt_na",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dps_no",
+				"type": "nchar"
+			},
+			{
+				"name": "dps_na",
+				"type": "varchar"
+			},
+			{
+				"name": "mdps_no_new",
+				"type": "nchar"
+			},
+			{
+				"name": "mdps_na",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sdps_no_new",
+				"type": "nchar"
+			},
+			{
+				"name": "sdps_na",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ddps_no_new",
+				"type": "char"
+			},
+			{
+				"name": "ddps_na",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_Goo"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

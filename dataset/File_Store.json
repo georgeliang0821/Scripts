@@ -1,0 +1,56 @@
+{
+	"name": "File_Store",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "File"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "AZ_Store_20201202.csv",
+				"container": "csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "uporgid",
+				"type": "String"
+			},
+			{
+				"name": "uporgname",
+				"type": "String"
+			},
+			{
+				"name": "orgid",
+				"type": "String"
+			},
+			{
+				"name": "orgname",
+				"type": "String"
+			},
+			{
+				"name": "store_no",
+				"type": "String"
+			},
+			{
+				"name": "name_short",
+				"type": "String"
+			},
+			{
+				"name": "city_id",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

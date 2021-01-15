@@ -1,0 +1,37 @@
+{
+	"name": "DB_AZ_calendar",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "d_date",
+				"type": "varchar"
+			},
+			{
+				"name": "activity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "festival",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weather",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_calendar"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

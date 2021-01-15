@@ -1,0 +1,49 @@
+{
+	"name": "DB_AZ_Store",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Database"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "uporgid",
+				"type": "varchar"
+			},
+			{
+				"name": "uporgname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "orgid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "orgname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "store_no",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_short",
+				"type": "nvarchar"
+			},
+			{
+				"name": "city_id",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AZ_Store_bak"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
