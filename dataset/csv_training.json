@@ -1,0 +1,40 @@
+{
+	"name": "csv_training",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "training",
+				"container": "csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "d_date",
+				"type": "String"
+			},
+			{
+				"name": "store_no",
+				"type": "String"
+			},
+			{
+				"name": "goo_no",
+				"type": "String"
+			},
+			{
+				"name": "Return_qty",
+				"type": "String"
+			}
+		]
+	}
+}
