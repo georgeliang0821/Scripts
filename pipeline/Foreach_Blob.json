@@ -125,7 +125,7 @@
 									"mappings": [
 										{
 											"source": {
-												"name": ""
+												"name": "d_date"
 											},
 											"sink": {
 												"name": "d_date",
@@ -135,12 +135,32 @@
 										},
 										{
 											"source": {
-												"name": ""
+												"name": "store_no"
 											},
 											"sink": {
 												"name": "store_no",
 												"type": "String",
 												"physicalType": "varchar"
+											}
+										},
+										{
+											"source": {
+												"name": "goo_no"
+											},
+											"sink": {
+												"name": "goo_no",
+												"type": "String",
+												"physicalType": "varchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Return_qty"
+											},
+											"sink": {
+												"name": "Return_qty",
+												"type": "Int32",
+												"physicalType": "int"
 											}
 										}
 									],
