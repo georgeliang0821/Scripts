@@ -27,15 +27,19 @@
 		},
 		"schema": [
 			{
+				"name": "d_date",
 				"type": "String"
 			},
 			{
+				"name": "store_no",
 				"type": "String"
 			},
 			{
+				"name": "goo_no",
 				"type": "String"
 			},
 			{
+				"name": "Return_qty",
 				"type": "String"
 			}
 		]
