@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "csv_training",
+						"referenceName": "csv_training_folder",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -61,7 +61,21 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "csv_training_folder",
+									"type": "DatasetReference"
+								},
+								"fieldList": [],
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							}
 						}
 					]
 				}

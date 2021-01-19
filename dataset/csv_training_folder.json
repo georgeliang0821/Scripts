@@ -1,15 +1,9 @@
 {
-	"name": "csv_training",
+	"name": "csv_training_folder",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"FileName": {
-				"type": "string",
-				"defaultValue": "input_file_name"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
