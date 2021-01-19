@@ -1,5 +1,5 @@
 {
-	"name": "Foreach",
+	"name": "Foreach_Blob",
 	"properties": {
 		"activities": [
 			{
@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get_Folder_Metadata').output.childItems.",
+						"value": "@activity('Get_Folder_Metadata').output.childItems",
 						"type": "Expression"
 					},
 					"activities": [
@@ -64,10 +64,18 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "csv_training_folder",
-									"type": "DatasetReference"
+									"referenceName": "csv_training_file",
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"itemName"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
